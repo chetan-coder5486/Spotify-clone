@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body{
+    font-family: 'Poppins', sans serif;
+    background-color: black;
+}
+
+.home-container{
+    display: flex;
+    align-items: center;
+    background-color: rgb(33, 29, 29);
+    padding: 5px 10px;
+    height: 35px;
+    border-radius: 50%
+
+}
+.search-box{
+    position: relative;
+}
+.search-icon{
+    position: absolute;
+    left: 0;
+    padding: 0 10px;
+}
+
+.search-box>input{
+    background: rgb(33, 29, 29);
+    border: 2px solid rgb(33, 29, 29);
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: max(350px,10vw);
+    border-radius: 20px;
+}
+
+.search-box>input::placeholder{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.browse-icon{
+    border-left: 1px solid black;
+    position: absolute;
+    right: 0;
+    padding: 0 10px;
+}
+
+.logo{
+    margin: 0 16px;
+}
+
+
+.navbar{
+    justify-content: space-between;
+}
+.nav-items{
+    border-right: 3px solid white;
+    padding: 0 20px;
+}
+.nav-text{
+    color: #c6c1c1;
+}
+
+.download-icon{
+padding: 5px;
+}
+
+.btn{
+    padding: 15px 30px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 25px;
+}
+
+.small-btn{
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.lib-container{
+    width: 25vw;
+    background-color: #121212;
+}
+.content{
+    margin: 5px;
+    width: 75vw;
+}
+
+.lib-top{
+    justify-content: space-between;
+}
+.lib-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 20px 0;
+    overflow: auto;
+}
+
+.lib-card{
+    background-color: rgb(32, 31, 31);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 1px;
+}
+
+.lib-card>.main-text{
+    padding: 4px;
+}
+.lib-card>.btn{
+    margin-top: 18px;
+    border: 1px solid white;
+}
+
+.lib-extra{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    font-size: 11px;
+}
+
+.cookies{
+    padding: 0 20px;
+    font-size: 14;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.smaller-btn{
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #121212;
+    border: 1px solid white;
+}
+
+.main-text{
+    color: white;
+}
+
+.content{
+    background-color: #121212;
+}
+
+.padding-content{
+    padding: 20px 30px;
+}
