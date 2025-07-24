@@ -56,7 +56,7 @@ async function main() {
         console.error("Element .playlist-cards not found.");
         return;
     }
-    let a = await fetch("./assets/songs"); // Corrected IP
+    let a = await fetch("https://spotify-clone-lovat-one.vercel.app/assets/songs"); // Corrected IP
     let response = await a.text();
     // console.log(response);
 
