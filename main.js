@@ -56,7 +56,7 @@ async function main() {
         console.error("Element .playlist-cards not found.");
         return;
     }
-    let a = await fetch("https://spotify-clone-lovat-one.vercel.app/assets/songs"); // Corrected IP
+    let a = await fetch("https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/songs"); // Corrected IP
     let response = await a.text();
     // console.log(response);
 
@@ -73,13 +73,13 @@ async function main() {
         const folderName = urlParts[urlParts.length - 2]; // Get the second-to-last part
 
         try {
-            let b = await fetch(`./assets/songs/${folderName}/info.json`);
+            let b = await fetch(`https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/songs/${folderName}/info.json`);
             let cardInfo = await b.json();
 
             // --- FIX 2: Apply the style directly in the HTML string ---
             return `<div class="playlist-card" data-folder="${folderName}">
-                        <div class="thumbnail" style="background-image: url('./assets/songs/${folderName}/thumbnail.jpg')">
-                            <img class="play-btn" src="./assets/images/play.svg" alt="play">
+                        <div class="thumbnail" style="background-image: url('https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/songs/${folderName}/thumbnail.jpg')">
+                            <img class="play-btn" src="https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/play.svg" alt="play">
                         </div>
                         <div class="title small bold-600 white-text">${cardInfo.title}</div>
                         <div class="description smaller gray-text" title = "${cardInfo.description}">${cardInfo.description}</div>
@@ -110,7 +110,7 @@ async function main() {
                 let songCreator = (parts[1] || "Unknown Artist").trim();
                 html += `<li>
                     <div class="song-card flex" data-song="${song}">
-                        <img class="music" src="./assets/images/music.svg" alt="">
+                        <img class="music" src="https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/music.svg" alt="">
                         <div class="song-info">
                             <div class="song-name">${songName}</div>
                             <div class="song-creator">${songCreator}</div>
@@ -123,7 +123,7 @@ async function main() {
             // 3. Load the first song but don't play it
             if (songs.length > 0) {
                 currentSong.src = songs[0];
-                play.src = "./assets/images/play2.svg";
+                play.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/play2.svg";
                 document.querySelector(".seekbar .circle").style.left = "0%";
                 document.querySelector(".current-time").textContent = "0:00";
                 document.querySelector(".total-time").textContent = "0:00";
@@ -140,7 +140,7 @@ async function main() {
             const songSrc = songCard.dataset.song;
             if (songSrc) {
                 currentSong.src = songSrc;
-                play.src = "./assets/images/pause.svg"; // Change play button to pause
+                play.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/pause.svg"; // Change play button to pause
                 currentSong.play(); // Play the selected song
                 updateCurrentSongDisplay(); // Update the display with the current song
             } else {
@@ -165,9 +165,9 @@ async function main() {
         currentSong.volume = newVolume;
 
         if (volumeSlider.value == 0) {
-            volumeIcon.src = "./assets/images/mute.svg";
+            volumeIcon.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/mute.svg";
         } else {
-            volumeIcon.src = "./assets/images/volume.svg";
+            volumeIcon.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/volume.svg";
         }
     });
 
@@ -175,12 +175,12 @@ async function main() {
         if (currentSong.volume > 0) {
             currentSong.volume = 0;
             volumeSlider.value = 0;
-            e.target.src = "./assets/images/mute.svg";
+            e.target.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/mute.svg";
         }
         else {
             currentSong.volume = 0.1;
             volumeSlider.value = 10; // Convert to percentage
-            e.target.src = "./assets/images/volume.svg";
+            e.target.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/volume.svg";
 
         }
     });
@@ -194,14 +194,14 @@ async function main() {
         }
         if (currentSong.paused) {
             currentSong.play();
-            play.src = "./assets/images/pause.svg";
+            play.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/pause.svg";
         } else {
             currentSong.pause();
-            play.src = "./assets/images/play2.svg";
+            play.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/play2.svg";
         }
     });
     currentSong.addEventListener("ended", () => {
-        play.src = "./assets/images/play2.svg"; // Reset play button icon when song ends
+        play.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/play2.svg"; // Reset play button icon when song ends
         console.log("Song ended.");
     });
 
@@ -213,7 +213,7 @@ async function main() {
         const prevIndex = (currentIndex - 1 + songs.length) % songs.length;
         currentSong.src = songs[prevIndex];
         currentSong.play();
-        play.src = "./assets/images/pause.svg";
+        play.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/pause.svg";
     });
 
     next.addEventListener("click", () => {
@@ -224,7 +224,7 @@ async function main() {
         const nextIndex = (currentIndex + 1) % songs.length;
         currentSong.src = songs[nextIndex];
         currentSong.play();
-        play.src = "./assets/images/pause.svg";
+        play.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/pause.svg";
     });
 
     currentSong.addEventListener("timeupdate", () => {
@@ -268,7 +268,7 @@ async function main() {
         if (songCard) {
             const musicElement = songCard.querySelector(".music");
             if (musicElement) {
-                musicElement.src = "./assets/images/play.svg";
+                musicElement.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/play.svg";
             }
         }
     });
@@ -278,7 +278,7 @@ async function main() {
         if (songCard) {
             const musicElement = songCard.querySelector(".music");
             if (musicElement) {
-                musicElement.src = "./assets/images/music.svg";
+                musicElement.src = "https://vercel.com/chetan-srivastavs-projects/spotify-clone/7qTGn4xvdccrf8iJtzqtxgN2pNT6/source/assets/images/music.svg";
             }
         }
     });
