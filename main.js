@@ -70,7 +70,7 @@ async function main() {
     const cardPromises = Array.from(anchors).filter(element => element.href.includes("/songs")).map(async (element) => {
         // --- FIX 1: Correctly get the folder name ---
         const urlParts = element.href.split('/');
-        const folderName = urlParts[urlParts.length - 2]; // Get the second-to-last part
+        const folderName = urlParts[urlParts.length - 1]; // Get the second-to-last part
 
         try {
             let b = await fetch(`./assets/songs/${folderName}/info.json`);
