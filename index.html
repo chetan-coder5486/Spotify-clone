@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone
+    </title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/utility.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar flex align-center">
+            <div class="navbar-left flex small-gap align-center">
+                <div class="flex align-center">
+                    <div class="menu">
+                        <img src="assets/images/hamburger.svg" alt="">
+                    </div>
+                    <img class="logo" src="assets/images/logo.svg" alt="">
+                </div>
+                <div class="home-container ">
+                    <img src="assets/images/home.svg" alt="">
+                </div>
+                <div class="search-box flex align-center">
+                    <input id="user-song" type="text" placeholder="What do you want to play?">
+                    <img class="search-icon" src="assets/images/search-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="navbar-right flex align-center small-gap">
+                <div class="nav-items flex align-center small-gap">
+                    <div class="nav-text bold">Premium</div>
+                    <div class="nav-text bold">Support</div>
+                    <div class="nav-text bold">Download</div>
+                </div>
+                <div class="authentiate flex align-center small-gap">
+                    <div class="nav-text smaller bold-500">Sign up</div>
+                    <button class="btn">Log in</button>
+                </div>
+                <div class="more">
+                    <img src="assets/images/more.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="lib-container padding-small">
+            <div class="lib-top flex">
+                <div class="main-text padding-small bold-600">Your Library</div>
+                <img class="padding-small" src="assets/images/plus-icon.svg" alt="">
+            </div>
+            <div class="lib-cards">
+
+                <div class="lib-card">
+                    <div class="main-text bold-600">Create your playlist</div>
+                    <div class="main-text smaller">It's easy, we'll help you</div>
+                    <button class="btn small-btn smaller bold-600">Create Playlist</button>
+                </div>
+                <div class="song-cards">
+                    <ul>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="lib-bottom">
+                <div class="lib-extra padding-medium gray-text">
+                    <div class="bold-500">Legal</div>
+                    <div class="bold-500">Safety&PrivacyCenter</div>
+                    <div class="bold-500">PrivacyPolicy</div>
+                    <div class="bold-500">Cookies</div>
+                    <div class="bold-500">AboutAds</div>
+                    <div class="bold-500">Accessibility</div>
+                </div>
+                <div><a class="smaller cookies" href="#">Cookies</a></div>
+                <div class="lang padding-medium">
+                    <button class="btn smaller-btn flex align-center smaller-gap">
+                        <div class="flex align-center">
+                            <img src="assets/images/globe-icon.svg" alt="">
+                        </div>
+                        <div class="main-text bold-600 smaller">English</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="nav-items-mobile">
+                <ul>
+                    <li>
+                        Premium
+                    </li>
+                    <li>
+                        Support
+                    </li>
+                    <li>
+                        Download
+                    </li>
+                </ul>
+            </div>
+            <div class="content-top">
+                <div class="big padding-content white-text bold-600">Your Playlists</div>
+                <div class="small white-text flex align-center margin-lr">Show all</div>
+            </div>
+            <div class="playlist-cards">
+            </div>
+            <div class="playbar">
+                <div class="seekbar">
+                    <div class="circle"></div>
+                </div>
+                <div class="current-song-info-container">
+                    <div class="current-song-info bold-600 white-text small">
+                    </div>
+                </div>
+                <div class="song-controls">
+                    <div class="ppp">
+                        <img id="prev" class="clickable" src="assets/images/prev.svg" alt="">
+                        <img id="play" class="clickable" src="assets/images/play2.svg" alt="">
+                        <img id="next" class="clickable" src="assets/images/next.svg" alt="">
+                    </div>
+                        <div class="song-volume">
+                        <img class="volume-icon" src="assets/images/volume.svg" alt="">
+                        <div class="volume-seekbar">
+                            <input type="range" class="volume-slider" min="0" max="100" value="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="song-time">
+                    <div class="current-time">0:00</div>
+                    <div class="total-time">0:00</div>
+                </div>
+            </div>
+        </div>
+        <script src="script/main.js"></script>
+</body>
+
+</html>
