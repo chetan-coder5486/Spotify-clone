@@ -20,11 +20,6 @@ async function getsongs(folder) {
     return songs
 }
 
-async function createSongCard(folder) {
-    let songs = await getsongs(folder);
-    ;
-}
-
 function updateCurrentSongDisplay() {
 
     if (!currentSong.src) {
