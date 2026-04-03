@@ -2,18 +2,27 @@
 let currentSong = new Audio()
 let songUl = document.querySelector(".song-cards").getElementsByTagName("ul")[0];
 let songs = []
+const playlistFolders = ["Electronic", "rest", "Rock"];
+const playlistInfoByFolder = {};
 
-async function getsongs(folder) {
-    let a = await fetch(`./assets/songs/${folder}`);
+async function getsongs(folder, songFiles = []) {
+    if (Array.isArray(songFiles) && songFiles.length > 0) {
+        return songFiles.map((fileName) => {
+            const encodedFileName = encodeURIComponent(fileName);
+            return new URL(`./assets/songs/${folder}/${encodedFileName}`, window.location.href).href;
+        });
+    }
+
+    // Fallback for local servers that expose directory listing.
+    let a = await fetch(`./assets/songs/${folder}/`);
     let response = await a.text();
-    console.log(response);
     let div = document.createElement("div");
     div.innerHTML = response;
     let as = div.getElementsByTagName("a");
     let songs = [];
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
-        if (element.href.endsWith("mp3")) {
+        if (element.href.endsWith(".mp3")) {
             songs.push(element.href);
         }
     }
@@ -56,25 +65,16 @@ async function main() {
         console.error("Element .playlist-cards not found.");
         return;
     }
-    let a = await fetch("./assets/songs"); // Corrected IP
-    let response = await a.text();
-    // console.log(response);
-
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let anchors = div.getElementsByTagName("a");
-    // console.log(anchors);
-
-
     // Use Promise.all to fetch all info.json files concurrently for better performance
-    const cardPromises = Array.from(anchors).filter(element => element.href.includes("/songs")).map(async (element) => {
-        // --- FIX 1: Correctly get the folder name ---
-        const urlParts = element.href.split('/');
-        const folderName = urlParts[urlParts.length - 1]; // Get the second-to-last part
+    const cardPromises = playlistFolders.map(async (folderName) => {
 
         try {
             let b = await fetch(`./assets/songs/${folderName}/info.json`);
+            if (!b.ok) {
+                throw new Error(`Failed to fetch info.json (${b.status})`);
+            }
             let cardInfo = await b.json();
+            playlistInfoByFolder[folderName] = cardInfo;
 
             // --- FIX 2: Apply the style directly in the HTML string ---
             return `<div class="playlist-card" data-folder="${folderName}">
@@ -99,7 +99,8 @@ async function main() {
         if (target) {
             const folder = target.dataset.folder;
             console.log("Selected folder:", folder);
-            songs = await getsongs(folder);
+            const songFiles = playlistInfoByFolder[folder]?.songs || [];
+            songs = await getsongs(folder, songFiles);
 
             // 2. Create the HTML for the song cards
             let html = "";
@@ -135,7 +136,7 @@ async function main() {
 
     // Add event listeners to song cards
     songUl.addEventListener("click", (event) => {
-        const songCard = event.target.closest(".song-card");   
+        const songCard = event.target.closest(".song-card");
         if (songCard) {
             const songSrc = songCard.dataset.song;
             if (songSrc) {

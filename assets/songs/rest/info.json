@@ -1,4 +1,15 @@
 {
     "title": "rest",
-    "description": "Rest music is designed to promote relaxation and tranquility, often featuring soothing melodies and gentle rhythms. It is commonly used in meditation, yoga, and therapeutic settings to help reduce stress and anxiety. This genre can include ambient sounds, soft instrumental music, and nature sounds, creating a peaceful auditory environment. Rest music aims to calm the mind and body, making it easier for listeners to unwind and find inner peace."
+    "description": "Rest music is designed to promote relaxation and tranquility, often featuring soothing melodies and gentle rhythms. It is commonly used in meditation, yoga, and therapeutic settings to help reduce stress and anxiety. This genre can include ambient sounds, soft instrumental music, and nature sounds, creating a peaceful auditory environment. Rest music aims to calm the mind and body, making it easier for listeners to unwind and find inner peace.",
+    "songs": [
+        "Boom - Dyalla.mp3",
+        "embrace-364091.mp3",
+        "For Granted - Dyalla.mp3",
+        "Funk It - Dyalla.mp3",
+        "Hot Drop Bus - Rod Kim.mp3",
+        "Just Surrender - Dyalla.mp3",
+        "Long Goodbyes to Longer Friends - Schwartzy.mp3",
+        "Sample Mind - Freedom Trail Studio.mp3",
+        "Swimming In A Fish Bowl - Mark Karan, Scott Guberman, Angeline Saris, Jeremy Hoenig.mp3"
+    ]
 }
